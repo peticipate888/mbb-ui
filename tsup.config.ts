@@ -27,10 +27,11 @@ export default defineConfig({
   banner: {
     js: '"use client";',
   },
-  // Copy static assets (images, SVGs) to dist/assets after build
+  // Copy static assets and CSS to dist after build
   onSuccess: async () => {
     copyAssets("src/assets", "dist/assets");
-    console.log("✅ Assets copied to dist/assets");
+    copyFileSync("src/styles/mbb-design-system.css", "dist/mbb-design-system.css");
+    console.log("✅ Assets and CSS copied to dist/");
   },
 
 });
