@@ -41,6 +41,64 @@ export default function Page() {
 }
 ```
 
+## Assets（視覺資源）
+
+v1.1.0 起，所有視覺資源已內建於 package 中，無需另外安裝 `mbb-assets`。共 258 個檔案，涵蓋 icons、logos、UI 元件圖、背景、插圖、寵物頭像、首頁 KV 等七大分類。
+
+### 設定方式
+
+**Option A：複製到 `public/` 目錄（推薦）**
+
+在 `package.json` 加入 postinstall script，或手動執行：
+
+```bash
+cp -r node_modules/@peticipate/mbb-ui/dist/assets public/mbb-assets
+```
+
+**Option B：Next.js rewrites（不複製檔案）**
+
+```js
+// next.config.js
+async rewrites() {
+  return [
+    {
+      source: '/mbb-assets/:path*',
+      destination: '/node_modules/@peticipate/mbb-ui/dist/assets/:path*',
+    },
+  ];
+},
+```
+
+### 引入方式
+
+```tsx
+// 從主 package 引入（與元件同一入口）
+import { iconBell, imgBrandLogo, imgPetAvatar } from "@peticipate/mbb-ui";
+
+// 或從 assets 子路徑引入
+import { iconBell, imgBrandLogo } from "@peticipate/mbb-ui/assets";
+
+// 直接用於 img src
+<img src={iconBell} alt="bell" />
+```
+
+Asset 值為純字串路徑，例如 `"/mbb-assets/icons/icon-bell.svg"`，可直接傳給任何 `src` 屬性。
+
+### Asset 分類
+
+| 分類 | 數量 | 前綴範例 |
+|------|------|---------|
+| icons | 131 | `iconBell`, `iconArrowRight`, `iconClose` |
+| logos | 4 | `imgBrandLogo`, `imgLogoSimple` |
+| ui | 19 | `imgFloatingBtnJoin`, `imgFloatingBtnLine` |
+| backgrounds | 21 | `imgHeroBgPc`, `imgAboutHeroPc` |
+| illustrations | 10 | `imgIllustration`, `imgPetStar` |
+| pets | 27 | `imgPetAvatar`, `imgAvatar1` |
+| home-kv | 46 | `kvCardAnswer`, `kvCardQuestion` |
+| **合計** | **258** | |
+
+> home-kv 分類使用 `kv` 前綴（而非 `img`），避免與其他分類命名衝突。
+
 ## 元件清單
 
 ### Core

@@ -37,3 +37,8 @@ export { MbbAosWrapper } from "./components/mbb-aos-wrapper";
 // ── Hooks ──
 export { useIntersectionObserver } from "./hooks/use-intersection-observer";
 export { useAutoExpand } from "./hooks/use-auto-expand";
+
+// ── Assets ──
+// 完整 asset exports，可直接 import 使用
+// import { logoMain, iconBell, bgHeroPc } from "@peticipate/mbb-ui/assets";
+export * from "./assets/index";

@@ -2,6 +2,14 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { cn } from "../utils/cn";
+import {
+  imgBrandLogo,
+  imgPetAvatar,
+  iconBell,
+  iconNavbarToggler,
+  iconNavbarTogglerClose,
+  iconArrowRight,
+} from "../assets/index";
 
 interface NavItem {
   label: string;
@@ -43,7 +51,7 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
       <nav className="hidden xl:block py-3">
         <div className="mx-auto max-w-[1200px] flex items-center bg-white rounded-pill shadow-card px-6 h-[56px]">
           <Link href="/" className="shrink-0">
-            <img src="/images/img-brand-logo.png" alt="毛幫幫" className="h-10" style={{ maxWidth: 240 }} />
+            <img src={imgBrandLogo} alt="毛幫幫" className="h-10" style={{ maxWidth: 240 }} />
           </Link>
           <div className="flex items-center gap-9 mx-auto">
             {items.map((item) => {
@@ -70,10 +78,10 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
             {isLoggedIn ? (
               <>
                 <button className="p-2 cursor-pointer" aria-label="通知">
-                  <img src="/images/assets/icon-bell.svg" alt="" className="h-5 w-5" />
+                  <img src={iconBell} alt="" className="h-5 w-5" />
                 </button>
                 <Link href="/account" className="block">
-                  <img src={avatarUrl || "/images/img-avatar.png"} alt="個人頭像" className="h-9 w-9 rounded-full object-cover border border-[var(--neutral-300)]" />
+                  <img src={avatarUrl || imgPetAvatar} alt="個人頭像" className="h-9 w-9 rounded-full object-cover border border-[var(--neutral-300)]" />
                 </Link>
               </>
             ) : (
@@ -93,10 +101,10 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
       {/* Mobile */}
       <nav className="xl:hidden flex items-center justify-between bg-white px-6 h-[68px] shadow-sm">
         <Link href="/">
-          <img src="/images/img-brand-logo.png" alt="毛幫幫" className="h-8" style={{ maxWidth: 160 }} />
+          <img src={imgBrandLogo} alt="毛幫幫" className="h-8" style={{ maxWidth: 160 }} />
         </Link>
         <button onClick={() => setMobileOpen(!mobileOpen)} className="p-2 cursor-pointer" aria-label={mobileOpen ? "關閉選單" : "開啟選單"}>
-          <img src={mobileOpen ? "/images/assets/icon-navbar-toggler-close.svg" : "/images/assets/icon-navbar-toggler.svg"} alt="" className="h-6 w-6" />
+          <img src={mobileOpen ? iconNavbarTogglerClose : iconNavbarToggler} alt="" className="h-6 w-6" />
         </button>
       </nav>
 
@@ -116,7 +124,7 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
                   {...extraProps}
                 >
                   <span>{item.label}</span>
-                  <img src="/images/assets/icon-arrow-right.svg" alt="" className="h-4 w-4" />
+                  <img src={iconArrowRight} alt="" className="h-4 w-4" />
                 </LinkOrA>
               );
             })}

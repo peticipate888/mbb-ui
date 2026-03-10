@@ -637,7 +637,7 @@
     bottom: -10px;
     width: 85px;
     height: 85px;
-    background-image: url('/images/assets/img-artical-dialog.png');
+    background-image: url('../assets/ui/img-artical-dialog.png');
     background-size: contain;
     background-repeat: no-repeat;
   }

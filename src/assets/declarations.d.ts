@@ -1,0 +1,27 @@
+// Type declarations for static asset imports
+// Supports both Next.js StaticImageData and plain string (Vite/webpack)
+
+declare module "*.png" {
+  const content: { src: string; height: number; width: number; blurDataURL?: string } | string;
+  export default content;
+}
+
+declare module "*.svg" {
+  const content: { src: string; height: number; width: number } | string;
+  export default content;
+}
+
+declare module "*.jpg" {
+  const content: { src: string; height: number; width: number; blurDataURL?: string } | string;
+  export default content;
+}
+
+declare module "*.jpeg" {
+  const content: { src: string; height: number; width: number; blurDataURL?: string } | string;
+  export default content;
+}
+
+declare module "*.webp" {
+  const content: { src: string; height: number; width: number; blurDataURL?: string } | string;
+  export default content;
+}

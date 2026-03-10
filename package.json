@@ -1,7 +1,7 @@
 {
   "name": "@peticipate/mbb-ui",
-  "version": "1.0.0",
-  "description": "毛幫幫 (Peticipate) Design System — React component library with full color system, dynamic effects, and accessibility.",
+  "version": "1.1.0",
+  "description": "毛幫幫 (Peticipate) Design System — React component library with full color system, dynamic effects, accessibility, and bundled visual assets.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -13,7 +13,13 @@
     },
     "./styles": "./dist/mbb-design-system.css",
     "./styles/globals.css": "./dist/mbb-design-system.css",
-    "./tailwind": "./dist/tailwind-preset.js"
+    "./tailwind": "./dist/tailwind-preset.js",
+    "./assets": {
+      "import": "./dist/assets/index.mjs",
+      "require": "./dist/assets/index.js",
+      "types": "./dist/assets/index.d.ts"
+    },
+    "./assets/*": "./dist/assets/*"
   },
   "files": [
     "dist",
