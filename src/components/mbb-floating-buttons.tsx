@@ -15,10 +15,10 @@ function MbbFloatingButtons({
   return (
     <div className={cn("fixed bottom-6 right-6 z-50 flex flex-col gap-3", className)}>
       <a href={joinUrl} className="block rise-effect" aria-label="加入毛幫幫">
-        <img src={imgFloatingBtnJoin} alt="加入毛幫幫" className="h-16 w-16" />
+        <img src={imgFloatingBtnJoin} alt="加入毛幫幫" className="h-16 w-16" loading="lazy" />
       </a>
       <a href={lineUrl} target="_blank" rel="noopener noreferrer" className="block rise-effect" aria-label="LINE 客服">
-        <img src={imgFloatingBtnLine} alt="LINE" className="h-16 w-16" />
+        <img src={imgFloatingBtnLine} alt="LINE" className="h-16 w-16" loading="lazy" />
       </a>
     </div>
   );

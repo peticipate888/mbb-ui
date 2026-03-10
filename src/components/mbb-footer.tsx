@@ -18,7 +18,7 @@ function MbbFooter({ className }: MbbFooterProps) {
       <div className="bg-white py-10">
         <div className="mx-auto max-w-[1200px] px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <Link href="/">
-            <img src={imgBrandLogo} alt="毛幫幫" className="h-[53px]" />
+            <img src={imgBrandLogo} alt="毛幫幫" className="h-[53px]" loading="lazy" />
           </Link>
           <nav className="flex flex-wrap items-center gap-6 text-sm text-[var(--text-content)]">
             <Link href="/about" className="hover:text-[var(--orange-400)] transition-colors">認識毛幫幫</Link>
@@ -40,13 +40,13 @@ function MbbFooter({ className }: MbbFooterProps) {
           </div>
           <div className="flex items-center gap-4">
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <img src={iconSocialMediaFacebook} alt="" className="h-8 w-8" />
+              <img src={iconSocialMediaFacebook} alt="" className="h-8 w-8" loading="lazy" />
             </a>
             <a href="https://line.me" target="_blank" rel="noopener noreferrer" aria-label="LINE">
-              <img src={iconSocialMediaLine} alt="" className="h-8 w-8" />
+              <img src={iconSocialMediaLine} alt="" className="h-8 w-8" loading="lazy" />
             </a>
             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <img src={iconSocialMediaInstagram} alt="" className="h-8 w-8" />
+              <img src={iconSocialMediaInstagram} alt="" className="h-8 w-8" loading="lazy" />
             </a>
           </div>
           <div className="flex items-center gap-4 text-sm text-white/80">

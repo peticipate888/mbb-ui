@@ -942,7 +942,7 @@ function MbbFooter({ className }) {
   return /* @__PURE__ */ jsxs14("footer", { className, children: [
     /* @__PURE__ */ jsxs14("div", { className: "bg-white py-10", children: [
       /* @__PURE__ */ jsxs14("div", { className: "mx-auto max-w-[1200px] px-6 flex flex-col md:flex-row items-center justify-between gap-6", children: [
-        /* @__PURE__ */ jsx18(Link2, { href: "/", children: /* @__PURE__ */ jsx18("img", { src: imgBrandLogo, alt: "\u6BDB\u5E6B\u5E6B", className: "h-[53px]" }) }),
+        /* @__PURE__ */ jsx18(Link2, { href: "/", children: /* @__PURE__ */ jsx18("img", { src: imgBrandLogo, alt: "\u6BDB\u5E6B\u5E6B", className: "h-[53px]", loading: "lazy" }) }),
         /* @__PURE__ */ jsxs14("nav", { className: "flex flex-wrap items-center gap-6 text-sm text-[var(--text-content)]", children: [
           /* @__PURE__ */ jsx18(Link2, { href: "/about", className: "hover:text-[var(--orange-400)] transition-colors", children: "\u8A8D\u8B58\u6BDB\u5E6B\u5E6B" }),
           /* @__PURE__ */ jsx18(Link2, { href: "/pricing", className: "hover:text-[var(--orange-400)] transition-colors", children: "\u65B9\u6848\u4ECB\u7D39" }),
@@ -963,9 +963,9 @@ function MbbFooter({ className }) {
         ] })
       ] }),
       /* @__PURE__ */ jsxs14("div", { className: "flex items-center gap-4", children: [
-        /* @__PURE__ */ jsx18("a", { href: "https://www.facebook.com", target: "_blank", rel: "noopener noreferrer", "aria-label": "Facebook", children: /* @__PURE__ */ jsx18("img", { src: iconSocialMediaFacebook, alt: "", className: "h-8 w-8" }) }),
-        /* @__PURE__ */ jsx18("a", { href: "https://line.me", target: "_blank", rel: "noopener noreferrer", "aria-label": "LINE", children: /* @__PURE__ */ jsx18("img", { src: iconSocialMediaLine, alt: "", className: "h-8 w-8" }) }),
-        /* @__PURE__ */ jsx18("a", { href: "https://www.instagram.com", target: "_blank", rel: "noopener noreferrer", "aria-label": "Instagram", children: /* @__PURE__ */ jsx18("img", { src: iconSocialMediaInstagram, alt: "", className: "h-8 w-8" }) })
+        /* @__PURE__ */ jsx18("a", { href: "https://www.facebook.com", target: "_blank", rel: "noopener noreferrer", "aria-label": "Facebook", children: /* @__PURE__ */ jsx18("img", { src: iconSocialMediaFacebook, alt: "", className: "h-8 w-8", loading: "lazy" }) }),
+        /* @__PURE__ */ jsx18("a", { href: "https://line.me", target: "_blank", rel: "noopener noreferrer", "aria-label": "LINE", children: /* @__PURE__ */ jsx18("img", { src: iconSocialMediaLine, alt: "", className: "h-8 w-8", loading: "lazy" }) }),
+        /* @__PURE__ */ jsx18("a", { href: "https://www.instagram.com", target: "_blank", rel: "noopener noreferrer", "aria-label": "Instagram", children: /* @__PURE__ */ jsx18("img", { src: iconSocialMediaInstagram, alt: "", className: "h-8 w-8", loading: "lazy" }) })
       ] }),
       /* @__PURE__ */ jsxs14("div", { className: "flex items-center gap-4 text-sm text-white/80", children: [
         /* @__PURE__ */ jsx18(Link2, { href: "/terms", className: "hover:text-white transition-colors", children: "\u670D\u52D9\u689D\u6B3E" }),
@@ -983,8 +983,8 @@ function MbbFloatingButtons({
   className
 }) {
   return /* @__PURE__ */ jsxs15("div", { className: cn("fixed bottom-6 right-6 z-50 flex flex-col gap-3", className), children: [
-    /* @__PURE__ */ jsx19("a", { href: joinUrl, className: "block rise-effect", "aria-label": "\u52A0\u5165\u6BDB\u5E6B\u5E6B", children: /* @__PURE__ */ jsx19("img", { src: imgFloatingBtnJoin, alt: "\u52A0\u5165\u6BDB\u5E6B\u5E6B", className: "h-16 w-16" }) }),
-    /* @__PURE__ */ jsx19("a", { href: lineUrl, target: "_blank", rel: "noopener noreferrer", className: "block rise-effect", "aria-label": "LINE \u5BA2\u670D", children: /* @__PURE__ */ jsx19("img", { src: imgFloatingBtnLine, alt: "LINE", className: "h-16 w-16" }) })
+    /* @__PURE__ */ jsx19("a", { href: joinUrl, className: "block rise-effect", "aria-label": "\u52A0\u5165\u6BDB\u5E6B\u5E6B", children: /* @__PURE__ */ jsx19("img", { src: imgFloatingBtnJoin, alt: "\u52A0\u5165\u6BDB\u5E6B\u5E6B", className: "h-16 w-16", loading: "lazy" }) }),
+    /* @__PURE__ */ jsx19("a", { href: lineUrl, target: "_blank", rel: "noopener noreferrer", className: "block rise-effect", "aria-label": "LINE \u5BA2\u670D", children: /* @__PURE__ */ jsx19("img", { src: imgFloatingBtnLine, alt: "LINE", className: "h-16 w-16", loading: "lazy" }) })
   ] });
 }
 
