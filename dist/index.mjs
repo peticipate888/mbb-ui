@@ -895,7 +895,7 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
       }) }),
       /* @__PURE__ */ jsx17("div", { className: "flex items-center gap-3 shrink-0", children: isLoggedIn ? /* @__PURE__ */ jsxs13(Fragment, { children: [
         /* @__PURE__ */ jsx17("button", { className: "p-2 cursor-pointer", "aria-label": "\u901A\u77E5", children: /* @__PURE__ */ jsx17("img", { src: iconBell, alt: "", className: "h-5 w-5" }) }),
-        /* @__PURE__ */ jsx17(Link, { href: "/account", className: "block", children: /* @__PURE__ */ jsx17("img", { src: avatarUrl || imgPetAvatar, alt: "\u500B\u4EBA\u982D\u50CF", className: "h-9 w-9 rounded-full object-cover border border-[var(--neutral-300)]" }) })
+        /* @__PURE__ */ jsx17(Link, { href: "/me", className: "block", children: /* @__PURE__ */ jsx17("img", { src: avatarUrl || imgPetAvatar, alt: "\u500B\u4EBA\u982D\u50CF", className: "h-9 w-9 rounded-full object-cover border border-[var(--neutral-300)]" }) })
       ] }) : /* @__PURE__ */ jsxs13(Fragment, { children: [
         /* @__PURE__ */ jsx17("button", { onClick: onLogin, className: "rounded-pill border-2 border-[var(--orange-300)] bg-white px-5 py-1.5 text-[var(--orange-400)] text-sm font-bold cursor-pointer transition hover:bg-[var(--orange-25)]", children: "\u767B\u5165" }),
         /* @__PURE__ */ jsx17("button", { onClick: onLogin, className: "rounded-pill bg-[var(--orange-300)] px-5 py-1.5 text-white text-sm font-bold cursor-pointer transition hover:bg-[var(--orange-400)]", children: "\u8A3B\u518A" })

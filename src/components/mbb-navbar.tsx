@@ -80,7 +80,7 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
                 <button className="p-2 cursor-pointer" aria-label="通知">
                   <img src={iconBell} alt="" className="h-5 w-5" />
                 </button>
-                <Link href="/account" className="block">
+                <Link href="/me" className="block">
                   <img src={avatarUrl || imgPetAvatar} alt="個人頭像" className="h-9 w-9 rounded-full object-cover border border-[var(--neutral-300)]" />
                 </Link>
               </>
