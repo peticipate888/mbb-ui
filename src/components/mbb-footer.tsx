@@ -7,51 +7,153 @@ import {
   iconSocialMediaInstagram,
 } from "../assets/index";
 
-interface MbbFooterProps {
-  className?: string;
+interface FooterLink {
+  label: string;
+  href: string;
+  external?: boolean;
 }
 
-function MbbFooter({ className }: MbbFooterProps) {
+interface FooterLinkGroup {
+  title: string;
+  links: FooterLink[];
+}
+
+interface SocialLink {
+  label: string;
+  href: string;
+  icon: string;
+}
+
+interface MbbFooterProps {
+  className?: string;
+  /** Navigation links shown in the upper white section */
+  navLinks?: FooterLink[];
+  /** Social media links — defaults to FB / LINE / IG */
+  socialLinks?: SocialLink[];
+  /** Legal links shown next to social icons */
+  legalLinks?: FooterLink[];
+  /** Company registration number */
+  registrationNumber?: string;
+  /** Copyright holder name */
+  copyrightHolder?: string;
+}
+
+const defaultNavLinks: FooterLink[] = [
+  { label: "搭搭手會員", href: "/membership" },
+  { label: "關於毛幫幫", href: "/about" },
+  { label: "毛幫幫購物", href: "https://shop.mbb.pet", external: true },
+  { label: "搭搭手響應", href: "/fund" },
+];
+
+const defaultSocialLinks: SocialLink[] = [
+  { label: "Facebook", href: "https://www.facebook.com/mbb.pet/", icon: "" },
+  { label: "LINE", href: "https://lin.ee/vYZqpoy", icon: "" },
+  { label: "Instagram", href: "https://www.instagram.com/mbb.pet/", icon: "" },
+];
+
+const defaultLegalLinks: FooterLink[] = [
+  { label: "條款與細則", href: "/terms" },
+];
+
+// Map social link labels to bundled icons
+const getSocialIcon = (label: string) => {
+  const lower = label.toLowerCase();
+  if (lower.includes("facebook") || lower.includes("fb")) return iconSocialMediaFacebook;
+  if (lower.includes("line")) return iconSocialMediaLine;
+  if (lower.includes("instagram") || lower.includes("ig")) return iconSocialMediaInstagram;
+  return null;
+};
+
+function MbbFooter({
+  className,
+  navLinks = defaultNavLinks,
+  socialLinks = defaultSocialLinks,
+  legalLinks = defaultLegalLinks,
+  registrationNumber = "00215174",
+  copyrightHolder = "毛幫幫科技股份有限公司版權所有轉載必究",
+}: MbbFooterProps) {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className={className}>
-      {/* Upper */}
-      <div className="bg-white py-10">
-        <div className="mx-auto max-w-[1200px] px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-          <Link href="/">
-            <img src={imgBrandLogo} alt="毛幫幫" className="h-[53px]" loading="lazy" />
+    <footer className={cn("", className)}>
+      {/* Upper section — white background with logo + nav links */}
+      <div className="bg-white">
+        <div className="mx-auto flex flex-col md:flex-row items-center justify-center gap-6 md:gap-0 py-7 md:py-0 md:h-[160px]" style={{ maxWidth: 704 }}>
+          <Link href="/" className="shrink-0">
+            <img src={imgBrandLogo} alt="毛幫幫" className="h-[53px] md:h-[53px]" loading="lazy" />
           </Link>
-          <nav className="flex flex-wrap items-center gap-6 text-sm text-[var(--text-content)]">
-            <Link href="/about" className="hover:text-[var(--orange-400)] transition-colors">認識毛幫幫</Link>
-            <Link href="/pricing" className="hover:text-[var(--orange-400)] transition-colors">方案介紹</Link>
-            <Link href="/catpedia" className="hover:text-[var(--orange-400)] transition-colors">毛孩百科</Link>
-            <Link href="/blog" className="hover:text-[var(--orange-400)] transition-colors">毛孩專欄</Link>
-            <a href="https://shop.mbb.pet" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--orange-400)] transition-colors">毛孩商城</a>
+
+          {/* Vertical divider — desktop only */}
+          <div className="hidden md:block w-px bg-[var(--neutral-300)] self-stretch my-4 mx-8" />
+          {/* Horizontal divider — mobile only */}
+          <hr className="md:hidden w-full border-[var(--neutral-300)] m-0" />
+
+          <nav className="flex flex-wrap items-center gap-5" aria-label="頁尾導覽">
+            {navLinks.map((link) => {
+              const LinkOrA = link.external ? "a" : Link;
+              const extraProps = link.external ? { target: "_blank" as const, rel: "noopener noreferrer" } : {};
+              return (
+                <LinkOrA
+                  key={link.label}
+                  href={link.href}
+                  className="text-sm md:text-base font-medium text-[var(--text-content)] hover:text-[var(--orange-400)] transition-colors px-2.5"
+                  {...extraProps}
+                >
+                  {link.label}
+                </LinkOrA>
+              );
+            })}
           </nav>
         </div>
-        <div className="dashed-line mx-auto max-w-[1200px] mt-6" />
       </div>
 
-      {/* Lower */}
-      <div className="bg-[#6fa0ed] py-6">
+      {/* Lower section — blue background with company info + social icons */}
+      <div className="bg-[#6fa0ed] py-4 md:py-4">
         <div className="mx-auto max-w-[1200px] px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-sm text-white/80 text-center md:text-left">
-            <p>統一編號：97168356 | 客服信箱：service@mbb.pet</p>
-            <p className="mt-1">Copyright &copy; {new Date().getFullYear()} 毛幫幫. All Rights Reserved.</p>
+          {/* Company info */}
+          <div className="flex flex-col xl:flex-row items-center gap-1 xl:gap-4 text-sm text-white order-2 md:order-1">
+            <p>統一編號：{registrationNumber}</p>
+            <div className="hidden xl:block w-px h-4 bg-white" />
+            <p>&copy; {currentYear} {copyrightHolder}</p>
           </div>
-          <div className="flex items-center gap-4">
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <img src={iconSocialMediaFacebook} alt="" className="h-8 w-8" loading="lazy" />
-            </a>
-            <a href="https://line.me" target="_blank" rel="noopener noreferrer" aria-label="LINE">
-              <img src={iconSocialMediaLine} alt="" className="h-8 w-8" loading="lazy" />
-            </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <img src={iconSocialMediaInstagram} alt="" className="h-8 w-8" loading="lazy" />
-            </a>
-          </div>
-          <div className="flex items-center gap-4 text-sm text-white/80">
-            <Link href="/terms" className="hover:text-white transition-colors">服務條款</Link>
-            <Link href="/privacy" className="hover:text-white transition-colors">隱私政策</Link>
+
+          {/* Legal links + Social icons */}
+          <div className="flex flex-col xl:flex-row items-center gap-5 order-1 md:order-2">
+            {/* Legal links */}
+            <div className="flex items-center gap-6">
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="text-sm font-medium text-white hover:text-white/80 transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* Social icons */}
+            <div className="flex items-center gap-4 xl:gap-2">
+              {socialLinks.map((social) => {
+                const icon = getSocialIcon(social.label);
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="transition-opacity hover:opacity-80"
+                  >
+                    {icon ? (
+                      <img src={icon} alt="" className="h-8 w-8 md:h-8 md:w-8" loading="lazy" />
+                    ) : (
+                      <span className="text-sm text-white">{social.label}</span>
+                    )}
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
@@ -60,3 +162,4 @@ function MbbFooter({ className }: MbbFooterProps) {
 }
 
 export { MbbFooter };
+export type { MbbFooterProps, FooterLinkGroup, FooterLink, SocialLink };

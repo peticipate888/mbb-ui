@@ -26,11 +26,14 @@ interface MbbNavbarProps {
 }
 
 const defaultItems: NavItem[] = [
-  { label: "認識毛幫幫", href: "/about" },
-  { label: "方案介紹", href: "/pricing" },
-  { label: "毛孩百科", href: "/catpedia" },
-  { label: "毛孩專欄", href: "/blog" },
-  { label: "毛孩商城", href: "https://shop.mbb.pet" },
+  { label: "幫幫圈", href: "/circle" },
+  { label: "幫幫百科", href: "/pedia" },
+  { label: "幫幫問", href: "/ask" },
+  { label: "電子報", href: "/newsletter" },
+  { label: "關於毛幫幫", href: "/about" },
+  { label: "搭搭手響應", href: "/fund" },
+  { label: "搭搭手會員", href: "/membership" },
+  { label: "毛幫幫購物", href: "https://shop.mbb.pet" },
 ];
 
 function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatarUrl, onLogin, onLogout }: MbbNavbarProps) {
@@ -47,13 +50,21 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[1020]">
+      {/* Skip to content — a11y */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[1100] focus:bg-white focus:px-4 focus:py-2 focus:rounded-pill focus:shadow-card focus:text-[var(--text-title)] focus:font-medium"
+      >
+        跳到主要內容區塊
+      </a>
+
       {/* Desktop */}
       <nav className="hidden xl:block py-3">
-        <div className="mx-auto max-w-[1200px] flex items-center bg-white rounded-pill shadow-card px-6 h-[56px]">
+        <div className="mx-auto max-w-[1200px] flex items-center bg-white rounded-pill shadow-card px-6 py-4">
           <Link href="/" className="shrink-0">
-            <img src={imgBrandLogo} alt="毛幫幫" className="h-10" style={{ maxWidth: 240 }} />
+            <img src={imgBrandLogo} alt="毛幫幫" className="h-12" style={{ maxWidth: 240 }} />
           </Link>
-          <div className="flex items-center gap-9 mx-auto">
+          <div className="flex items-center gap-6 mx-auto">
             {items.map((item) => {
               const active = currentPath.startsWith(item.href) && item.href !== "/";
               const LinkOrA = isExternal(item.href) ? "a" : Link;
@@ -63,9 +74,9 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "text-sm font-medium transition-colors duration-200 relative pb-1 cursor-pointer",
-                    active ? "text-[var(--orange-400)]" : "text-[var(--text-content)] hover:text-[var(--orange-400)]",
-                    active && "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1.5px] after:bg-[var(--orange-400)]"
+                    "text-base font-medium transition-colors duration-300 relative py-3 cursor-pointer whitespace-nowrap",
+                    active ? "text-[var(--orange-400)]" : "text-[var(--text-title)] hover:text-[var(--orange-400)]",
+                    active && "after:absolute after:bottom-[7px] after:left-0 after:right-0 after:h-[1.5px] after:bg-[var(--orange-300)]"
                   )}
                   {...extraProps}
                 >
@@ -85,25 +96,24 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
                 </Link>
               </>
             ) : (
-              <>
-                <button onClick={onLogin} className="rounded-pill border-2 border-[var(--orange-300)] bg-white px-5 py-1.5 text-[var(--orange-400)] text-sm font-bold cursor-pointer transition hover:bg-[var(--orange-25)]">
-                  登入
-                </button>
-                <button onClick={onLogin} className="rounded-pill bg-[var(--orange-300)] px-5 py-1.5 text-white text-sm font-bold cursor-pointer transition hover:bg-[var(--orange-400)]">
-                  註冊
-                </button>
-              </>
+              <button onClick={onLogin} className="btn-gradient-primary text-sm cursor-pointer whitespace-nowrap">
+                註冊 / 登入
+              </button>
             )}
           </div>
         </div>
       </nav>
 
-      {/* Mobile */}
-      <nav className="xl:hidden flex items-center justify-between bg-white px-6 h-[68px] shadow-sm">
+      {/* Mobile — centered logo, absolute-positioned toggler */}
+      <nav className="xl:hidden relative flex items-center justify-center bg-white px-6 h-[68px] shadow-sm">
         <Link href="/">
           <img src={imgBrandLogo} alt="毛幫幫" className="h-8" style={{ maxWidth: 160 }} />
         </Link>
-        <button onClick={() => setMobileOpen(!mobileOpen)} className="p-2 cursor-pointer" aria-label={mobileOpen ? "關閉選單" : "開啟選單"}>
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="absolute right-6 top-1/2 -translate-y-1/2 p-2 cursor-pointer"
+          aria-label={mobileOpen ? "關閉選單" : "開啟選單"}
+        >
           <img src={mobileOpen ? iconNavbarTogglerClose : iconNavbarToggler} alt="" className="h-6 w-6" />
         </button>
       </nav>
@@ -119,21 +129,21 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
                 <LinkOrA
                   key={item.href}
                   href={item.href}
-                  className="flex items-center justify-between px-6 py-4 text-[var(--text-content)] font-medium border-b border-dashed border-[var(--neutral-300)] cursor-pointer"
+                  className="flex items-center justify-between px-6 py-5 text-[var(--text-title)] font-medium border-b border-dashed border-[var(--orange-300)] cursor-pointer"
                   onClick={() => setMobileOpen(false)}
                   {...extraProps}
                 >
                   <span>{item.label}</span>
-                  <img src={iconArrowRight} alt="" className="h-4 w-4" />
+                  <img src={iconArrowRight} alt="" className="h-6 w-6" />
                 </LinkOrA>
               );
             })}
           </div>
           <div className="p-6 space-y-3">
             {isLoggedIn ? (
-              <button onClick={() => { onLogout?.(); setMobileOpen(false); }} className="btn-outline-primary w-full">登出</button>
+              <button onClick={() => { onLogout?.(); setMobileOpen(false); }} className="btn-outline-primary w-full cursor-pointer">登出</button>
             ) : (
-              <button onClick={() => { onLogin?.(); setMobileOpen(false); }} className="btn-gradient-primary w-full">註冊 / 登入</button>
+              <button onClick={() => { onLogin?.(); setMobileOpen(false); }} className="btn-gradient-primary w-full cursor-pointer">註冊 / 登入</button>
             )}
           </div>
         </div>

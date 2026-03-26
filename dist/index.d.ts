@@ -179,10 +179,34 @@ interface MbbNavbarProps {
 }
 declare function MbbNavbar({ items, currentPath, isLoggedIn, avatarUrl, onLogin, onLogout }: MbbNavbarProps): react_jsx_runtime.JSX.Element;
 
+interface FooterLink {
+    label: string;
+    href: string;
+    external?: boolean;
+}
+interface FooterLinkGroup {
+    title: string;
+    links: FooterLink[];
+}
+interface SocialLink {
+    label: string;
+    href: string;
+    icon: string;
+}
 interface MbbFooterProps {
     className?: string;
+    /** Navigation links shown in the upper white section */
+    navLinks?: FooterLink[];
+    /** Social media links — defaults to FB / LINE / IG */
+    socialLinks?: SocialLink[];
+    /** Legal links shown next to social icons */
+    legalLinks?: FooterLink[];
+    /** Company registration number */
+    registrationNumber?: string;
+    /** Copyright holder name */
+    copyrightHolder?: string;
 }
-declare function MbbFooter({ className }: MbbFooterProps): react_jsx_runtime.JSX.Element;
+declare function MbbFooter({ className, navLinks, socialLinks, legalLinks, registrationNumber, copyrightHolder, }: MbbFooterProps): react_jsx_runtime.JSX.Element;
 
 interface MbbFloatingButtonsProps {
     lineUrl?: string;
@@ -255,4 +279,4 @@ declare function useAutoExpand<T extends HTMLTextAreaElement = HTMLTextAreaEleme
     adjustHeight: () => void;
 };
 
-export { MbbAosWrapper, MbbBottomSheet, MbbButton, MbbCard, MbbFloatingButtons, MbbFooter, MbbFormCheckbox, MbbFormInput, MbbFormRadio, MbbFormSelect, MbbHeroSection, MbbLayout, MbbLoadingSpinner, MbbModal, MbbNavbar, MbbNoticeBlock, MbbPagination, MbbSectionWrapper, MbbTabs, MbbTag, MbbTextarea, MbbWhitePanel, buttonVariants, cardVariants, cn, tagVariants, useAutoExpand, useIntersectionObserver };
+export { type FooterLink, type FooterLinkGroup, MbbAosWrapper, MbbBottomSheet, MbbButton, MbbCard, MbbFloatingButtons, MbbFooter, type MbbFooterProps, MbbFormCheckbox, MbbFormInput, MbbFormRadio, MbbFormSelect, MbbHeroSection, MbbLayout, MbbLoadingSpinner, MbbModal, MbbNavbar, MbbNoticeBlock, MbbPagination, MbbSectionWrapper, MbbTabs, MbbTag, MbbTextarea, MbbWhitePanel, type SocialLink, buttonVariants, cardVariants, cn, tagVariants, useAutoExpand, useIntersectionObserver };

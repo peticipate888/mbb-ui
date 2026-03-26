@@ -29,6 +29,7 @@ export { MbbNoticeBlock } from "./components/mbb-notice-block";
 // ── Layout Components ──
 export { MbbNavbar } from "./components/mbb-navbar";
 export { MbbFooter } from "./components/mbb-footer";
+export type { MbbFooterProps, FooterLinkGroup, FooterLink, SocialLink } from "./components/mbb-footer";
 export { MbbFloatingButtons } from "./components/mbb-floating-buttons";
 export { MbbLoadingSpinner } from "./components/mbb-loading-spinner";
 export { MbbLayout } from "./components/mbb-layout";

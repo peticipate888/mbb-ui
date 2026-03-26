@@ -53,6 +53,7 @@ function MbbLayout({
         )}
 
         <main
+          id="main-content"
           className={cn(
             "flex-1",
             !hideNavbar && "pt-[60px]",
