@@ -1204,7 +1204,7 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
       }
     ),
     /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("nav", { className: "hidden xl:block py-3", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "mx-auto max-w-[1200px] flex items-center bg-white rounded-pill shadow-card px-6 py-4", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_link.default, { href: "/", className: "shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("img", { src: imgBrandLogo, alt: "\u6BDB\u5E6B\u5E6B", className: "h-12", style: { maxWidth: 240 } }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_link.default, { href: "/", className: "shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("img", { src: imgBrandLogo, alt: "\u6BDB\u5E6B\u5E6B", className: "w-[240px] h-auto" }) }),
       /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "flex items-center gap-6 mx-auto", children: items.map((item) => {
         const active = currentPath.startsWith(item.href) && item.href !== "/";
         const LinkOrA = isExternal(item.href) ? "a" : import_link.default;

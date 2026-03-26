@@ -62,7 +62,7 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
       <nav className="hidden xl:block py-3">
         <div className="mx-auto max-w-[1200px] flex items-center bg-white rounded-pill shadow-card px-6 py-4">
           <Link href="/" className="shrink-0">
-            <img src={imgBrandLogo} alt="毛幫幫" className="h-12" style={{ maxWidth: 240 }} />
+            <img src={imgBrandLogo} alt="毛幫幫" className="w-[240px] h-auto" />
           </Link>
           <div className="flex items-center gap-6 mx-auto">
             {items.map((item) => {
