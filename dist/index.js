@@ -1174,11 +1174,14 @@ var imgWavePc = BASE + "/home-kv/img-wave-pc.png";
 // src/components/mbb-navbar.tsx
 var import_jsx_runtime17 = require("react/jsx-runtime");
 var defaultItems = [
-  { label: "\u8A8D\u8B58\u6BDB\u5E6B\u5E6B", href: "/about" },
-  { label: "\u65B9\u6848\u4ECB\u7D39", href: "/pricing" },
-  { label: "\u6BDB\u5B69\u767E\u79D1", href: "/catpedia" },
-  { label: "\u6BDB\u5B69\u5C08\u6B04", href: "/blog" },
-  { label: "\u6BDB\u5B69\u5546\u57CE", href: "https://shop.mbb.pet" }
+  { label: "\u5E6B\u5E6B\u5708", href: "/circle" },
+  { label: "\u5E6B\u5E6B\u767E\u79D1", href: "/pedia" },
+  { label: "\u5E6B\u5E6B\u554F", href: "/ask" },
+  { label: "\u96FB\u5B50\u5831", href: "/newsletter" },
+  { label: "\u95DC\u65BC\u6BDB\u5E6B\u5E6B", href: "/about" },
+  { label: "\u642D\u642D\u624B\u97FF\u61C9", href: "/fund" },
+  { label: "\u642D\u642D\u624B\u6703\u54E1", href: "/membership" },
+  { label: "\u6BDB\u5E6B\u5E6B\u8CFC\u7269", href: "https://shop.mbb.pet" }
 ];
 function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatarUrl, onLogin, onLogout }) {
   const [mobileOpen, setMobileOpen] = (0, import_react10.useState)(false);
@@ -1192,9 +1195,17 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
   }, [mobileOpen]);
   const isExternal = (href) => href.startsWith("http");
   return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("header", { className: "fixed top-0 left-0 right-0 z-[1020]", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("nav", { className: "hidden xl:block py-3", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "mx-auto max-w-[1200px] flex items-center bg-white rounded-pill shadow-card px-6 h-[56px]", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_link.default, { href: "/", className: "shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("img", { src: imgBrandLogo, alt: "\u6BDB\u5E6B\u5E6B", className: "h-10", style: { maxWidth: 240 } }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "flex items-center gap-9 mx-auto", children: items.map((item) => {
+    /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+      "a",
+      {
+        href: "#main-content",
+        className: "sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[1100] focus:bg-white focus:px-4 focus:py-2 focus:rounded-pill focus:shadow-card focus:text-[var(--text-title)] focus:font-medium",
+        children: "\u8DF3\u5230\u4E3B\u8981\u5167\u5BB9\u5340\u584A"
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("nav", { className: "hidden xl:block py-3", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "mx-auto max-w-[1200px] flex items-center bg-white rounded-pill shadow-card px-6 py-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_link.default, { href: "/", className: "shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("img", { src: imgBrandLogo, alt: "\u6BDB\u5E6B\u5E6B", className: "h-12", style: { maxWidth: 240 } }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "flex items-center gap-6 mx-auto", children: items.map((item) => {
         const active = currentPath.startsWith(item.href) && item.href !== "/";
         const LinkOrA = isExternal(item.href) ? "a" : import_link.default;
         const extraProps = isExternal(item.href) ? { target: "_blank", rel: "noopener noreferrer" } : {};
@@ -1203,9 +1214,9 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
           {
             href: item.href,
             className: cn(
-              "text-sm font-medium transition-colors duration-200 relative pb-1 cursor-pointer",
-              active ? "text-[var(--orange-400)]" : "text-[var(--text-content)] hover:text-[var(--orange-400)]",
-              active && "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1.5px] after:bg-[var(--orange-400)]"
+              "text-base font-medium transition-colors duration-300 relative py-3 cursor-pointer whitespace-nowrap",
+              active ? "text-[var(--orange-400)]" : "text-[var(--text-title)] hover:text-[var(--orange-400)]",
+              active && "after:absolute after:bottom-[7px] after:left-0 after:right-0 after:h-[1.5px] after:bg-[var(--orange-300)]"
             ),
             ...extraProps,
             children: item.label
@@ -1216,14 +1227,19 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
       /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "flex items-center gap-3 shrink-0", children: isLoggedIn ? /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(import_jsx_runtime17.Fragment, { children: [
         /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("button", { className: "p-2 cursor-pointer", "aria-label": "\u901A\u77E5", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("img", { src: iconBell, alt: "", className: "h-5 w-5" }) }),
         /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_link.default, { href: "/me", className: "block", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("img", { src: avatarUrl || imgPetAvatar, alt: "\u500B\u4EBA\u982D\u50CF", className: "h-9 w-9 rounded-full object-cover border border-[var(--neutral-300)]" }) })
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(import_jsx_runtime17.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("button", { onClick: onLogin, className: "rounded-pill border-2 border-[var(--orange-300)] bg-white px-5 py-1.5 text-[var(--orange-400)] text-sm font-bold cursor-pointer transition hover:bg-[var(--orange-25)]", children: "\u767B\u5165" }),
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("button", { onClick: onLogin, className: "rounded-pill bg-[var(--orange-300)] px-5 py-1.5 text-white text-sm font-bold cursor-pointer transition hover:bg-[var(--orange-400)]", children: "\u8A3B\u518A" })
-      ] }) })
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("button", { onClick: onLogin, className: "btn-gradient-primary text-sm cursor-pointer whitespace-nowrap", children: "\u8A3B\u518A / \u767B\u5165" }) })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("nav", { className: "xl:hidden flex items-center justify-between bg-white px-6 h-[68px] shadow-sm", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("nav", { className: "xl:hidden relative flex items-center justify-center bg-white px-6 h-[68px] shadow-sm", children: [
       /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_link.default, { href: "/", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("img", { src: imgBrandLogo, alt: "\u6BDB\u5E6B\u5E6B", className: "h-8", style: { maxWidth: 160 } }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("button", { onClick: () => setMobileOpen(!mobileOpen), className: "p-2 cursor-pointer", "aria-label": mobileOpen ? "\u95DC\u9589\u9078\u55AE" : "\u958B\u555F\u9078\u55AE", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("img", { src: mobileOpen ? iconNavbarTogglerClose : iconNavbarToggler, alt: "", className: "h-6 w-6" }) })
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+        "button",
+        {
+          onClick: () => setMobileOpen(!mobileOpen),
+          className: "absolute right-6 top-1/2 -translate-y-1/2 p-2 cursor-pointer",
+          "aria-label": mobileOpen ? "\u95DC\u9589\u9078\u55AE" : "\u958B\u555F\u9078\u55AE",
+          children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("img", { src: mobileOpen ? iconNavbarTogglerClose : iconNavbarToggler, alt: "", className: "h-6 w-6" })
+        }
+      )
     ] }),
     mobileOpen && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { ref: overlayRef, className: "xl:hidden fixed inset-0 top-[68px] z-[1020] bg-white overflow-y-auto", children: [
       /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "flex flex-col", children: items.map((item) => {
@@ -1233,12 +1249,12 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
           LinkOrA,
           {
             href: item.href,
-            className: "flex items-center justify-between px-6 py-4 text-[var(--text-content)] font-medium border-b border-dashed border-[var(--neutral-300)] cursor-pointer",
+            className: "flex items-center justify-between px-6 py-5 text-[var(--text-title)] font-medium border-b border-dashed border-[var(--orange-300)] cursor-pointer",
             onClick: () => setMobileOpen(false),
             ...extraProps,
             children: [
               /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { children: item.label }),
-              /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("img", { src: iconArrowRight, alt: "", className: "h-4 w-4" })
+              /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("img", { src: iconArrowRight, alt: "", className: "h-6 w-6" })
             ]
           },
           item.href
@@ -1247,10 +1263,10 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
       /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "p-6 space-y-3", children: isLoggedIn ? /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("button", { onClick: () => {
         onLogout?.();
         setMobileOpen(false);
-      }, className: "btn-outline-primary w-full", children: "\u767B\u51FA" }) : /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("button", { onClick: () => {
+      }, className: "btn-outline-primary w-full cursor-pointer", children: "\u767B\u51FA" }) : /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("button", { onClick: () => {
         onLogin?.();
         setMobileOpen(false);
-      }, className: "btn-gradient-primary w-full", children: "\u8A3B\u518A / \u767B\u5165" }) })
+      }, className: "btn-gradient-primary w-full cursor-pointer", children: "\u8A3B\u518A / \u767B\u5165" }) })
     ] })
   ] });
 }
@@ -1258,38 +1274,95 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
 // src/components/mbb-footer.tsx
 var import_link2 = __toESM(require("next/link"));
 var import_jsx_runtime18 = require("react/jsx-runtime");
-function MbbFooter({ className }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("footer", { className, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "bg-white py-10", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "mx-auto max-w-[1200px] px-6 flex flex-col md:flex-row items-center justify-between gap-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(import_link2.default, { href: "/", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("img", { src: imgBrandLogo, alt: "\u6BDB\u5E6B\u5E6B", className: "h-[53px]", loading: "lazy" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("nav", { className: "flex flex-wrap items-center gap-6 text-sm text-[var(--text-content)]", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(import_link2.default, { href: "/about", className: "hover:text-[var(--orange-400)] transition-colors", children: "\u8A8D\u8B58\u6BDB\u5E6B\u5E6B" }),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(import_link2.default, { href: "/pricing", className: "hover:text-[var(--orange-400)] transition-colors", children: "\u65B9\u6848\u4ECB\u7D39" }),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(import_link2.default, { href: "/catpedia", className: "hover:text-[var(--orange-400)] transition-colors", children: "\u6BDB\u5B69\u767E\u79D1" }),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(import_link2.default, { href: "/blog", className: "hover:text-[var(--orange-400)] transition-colors", children: "\u6BDB\u5B69\u5C08\u6B04" }),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("a", { href: "https://shop.mbb.pet", target: "_blank", rel: "noopener noreferrer", className: "hover:text-[var(--orange-400)] transition-colors", children: "\u6BDB\u5B69\u5546\u57CE" })
+var defaultNavLinks = [
+  { label: "\u642D\u642D\u624B\u6703\u54E1", href: "/membership" },
+  { label: "\u95DC\u65BC\u6BDB\u5E6B\u5E6B", href: "/about" },
+  { label: "\u6BDB\u5E6B\u5E6B\u8CFC\u7269", href: "https://shop.mbb.pet", external: true },
+  { label: "\u642D\u642D\u624B\u97FF\u61C9", href: "/fund" }
+];
+var defaultSocialLinks = [
+  { label: "Facebook", href: "https://www.facebook.com/mbb.pet/", icon: "" },
+  { label: "LINE", href: "https://lin.ee/vYZqpoy", icon: "" },
+  { label: "Instagram", href: "https://www.instagram.com/mbb.pet/", icon: "" }
+];
+var defaultLegalLinks = [
+  { label: "\u689D\u6B3E\u8207\u7D30\u5247", href: "/terms" }
+];
+var getSocialIcon = (label) => {
+  const lower = label.toLowerCase();
+  if (lower.includes("facebook") || lower.includes("fb")) return iconSocialMediaFacebook;
+  if (lower.includes("line")) return iconSocialMediaLine;
+  if (lower.includes("instagram") || lower.includes("ig")) return iconSocialMediaInstagram;
+  return null;
+};
+function MbbFooter({
+  className,
+  navLinks = defaultNavLinks,
+  socialLinks = defaultSocialLinks,
+  legalLinks = defaultLegalLinks,
+  registrationNumber = "00215174",
+  copyrightHolder = "\u6BDB\u5E6B\u5E6B\u79D1\u6280\u80A1\u4EFD\u6709\u9650\u516C\u53F8\u7248\u6B0A\u6240\u6709\u8F49\u8F09\u5FC5\u7A76"
+}) {
+  const currentYear = (/* @__PURE__ */ new Date()).getFullYear();
+  return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("footer", { className: cn("", className), children: [
+    /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "bg-white", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "mx-auto flex flex-col md:flex-row items-center justify-center gap-6 md:gap-0 py-7 md:py-0 md:h-[160px]", style: { maxWidth: 704 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(import_link2.default, { href: "/", className: "shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("img", { src: imgBrandLogo, alt: "\u6BDB\u5E6B\u5E6B", className: "h-[53px] md:h-[53px]", loading: "lazy" }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "hidden md:block w-px bg-[var(--neutral-300)] self-stretch my-4 mx-8" }),
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("hr", { className: "md:hidden w-full border-[var(--neutral-300)] m-0" }),
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("nav", { className: "flex flex-wrap items-center gap-5", "aria-label": "\u9801\u5C3E\u5C0E\u89BD", children: navLinks.map((link) => {
+        const LinkOrA = link.external ? "a" : import_link2.default;
+        const extraProps = link.external ? { target: "_blank", rel: "noopener noreferrer" } : {};
+        return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+          LinkOrA,
+          {
+            href: link.href,
+            className: "text-sm md:text-base font-medium text-[var(--text-content)] hover:text-[var(--orange-400)] transition-colors px-2.5",
+            ...extraProps,
+            children: link.label
+          },
+          link.label
+        );
+      }) })
+    ] }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "bg-[#6fa0ed] py-4 md:py-4", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "mx-auto max-w-[1200px] px-6 flex flex-col md:flex-row items-center justify-between gap-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "flex flex-col xl:flex-row items-center gap-1 xl:gap-4 text-sm text-white order-2 md:order-1", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("p", { children: [
+          "\u7D71\u4E00\u7DE8\u865F\uFF1A",
+          registrationNumber
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "hidden xl:block w-px h-4 bg-white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("p", { children: [
+          "\xA9 ",
+          currentYear,
+          " ",
+          copyrightHolder
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "dashed-line mx-auto max-w-[1200px] mt-6" })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "bg-[#6fa0ed] py-6", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "mx-auto max-w-[1200px] px-6 flex flex-col md:flex-row items-center justify-between gap-4", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "text-sm text-white/80 text-center md:text-left", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { children: "\u7D71\u4E00\u7DE8\u865F\uFF1A97168356 | \u5BA2\u670D\u4FE1\u7BB1\uFF1Aservice@mbb.pet" }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("p", { className: "mt-1", children: [
-          "Copyright \xA9 ",
-          (/* @__PURE__ */ new Date()).getFullYear(),
-          " \u6BDB\u5E6B\u5E6B. All Rights Reserved."
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "flex items-center gap-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("a", { href: "https://www.facebook.com", target: "_blank", rel: "noopener noreferrer", "aria-label": "Facebook", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("img", { src: iconSocialMediaFacebook, alt: "", className: "h-8 w-8", loading: "lazy" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("a", { href: "https://line.me", target: "_blank", rel: "noopener noreferrer", "aria-label": "LINE", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("img", { src: iconSocialMediaLine, alt: "", className: "h-8 w-8", loading: "lazy" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("a", { href: "https://www.instagram.com", target: "_blank", rel: "noopener noreferrer", "aria-label": "Instagram", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("img", { src: iconSocialMediaInstagram, alt: "", className: "h-8 w-8", loading: "lazy" }) })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "flex items-center gap-4 text-sm text-white/80", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(import_link2.default, { href: "/terms", className: "hover:text-white transition-colors", children: "\u670D\u52D9\u689D\u6B3E" }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(import_link2.default, { href: "/privacy", className: "hover:text-white transition-colors", children: "\u96B1\u79C1\u653F\u7B56" })
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "flex flex-col xl:flex-row items-center gap-5 order-1 md:order-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "flex items-center gap-6", children: legalLinks.map((link) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+          import_link2.default,
+          {
+            href: link.href,
+            className: "text-sm font-medium text-white hover:text-white/80 transition-colors",
+            children: link.label
+          },
+          link.label
+        )) }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "flex items-center gap-4 xl:gap-2", children: socialLinks.map((social) => {
+          const icon = getSocialIcon(social.label);
+          return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+            "a",
+            {
+              href: social.href,
+              target: "_blank",
+              rel: "noopener noreferrer",
+              "aria-label": social.label,
+              className: "transition-opacity hover:opacity-80",
+              children: icon ? /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("img", { src: icon, alt: "", className: "h-8 w-8 md:h-8 md:w-8", loading: "lazy" }) : /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "text-sm text-white", children: social.label })
+            },
+            social.label
+          );
+        }) })
       ] })
     ] }) })
   ] });
@@ -1387,6 +1460,7 @@ function MbbLayout({
     /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
       "main",
       {
+        id: "main-content",
         className: cn(
           "flex-1",
           !hideNavbar && "pt-[60px]",
