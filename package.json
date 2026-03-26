@@ -21,8 +21,12 @@
     },
     "./assets/*": "./dist/assets/*"
   },
+  "bin": {
+    "mbb-ui-setup": "./bin/setup-assets.mjs"
+  },
   "files": [
     "dist",
+    "bin",
     "README.md"
   ],
   "scripts": {
