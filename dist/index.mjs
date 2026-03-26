@@ -910,14 +910,14 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
       ] }) : /* @__PURE__ */ jsx17("button", { onClick: onLogin, className: "btn-gradient-primary text-sm cursor-pointer whitespace-nowrap", children: "\u8A3B\u518A / \u767B\u5165" }) })
     ] }) }),
     /* @__PURE__ */ jsxs13("nav", { className: "xl:hidden relative flex items-center justify-center bg-white px-6 h-[68px] shadow-sm", children: [
-      /* @__PURE__ */ jsx17(Link, { href: "/", children: /* @__PURE__ */ jsx17("img", { src: imgBrandLogo, alt: "\u6BDB\u5E6B\u5E6B", className: "h-8", style: { maxWidth: 160 } }) }),
+      /* @__PURE__ */ jsx17(Link, { href: "/", children: /* @__PURE__ */ jsx17("img", { src: imgBrandLogo, alt: "\u6BDB\u5E6B\u5E6B", className: "w-[160px] h-auto" }) }),
       /* @__PURE__ */ jsx17(
         "button",
         {
           onClick: () => setMobileOpen(!mobileOpen),
           className: "absolute right-6 top-1/2 -translate-y-1/2 p-2 cursor-pointer",
           "aria-label": mobileOpen ? "\u95DC\u9589\u9078\u55AE" : "\u958B\u555F\u9078\u55AE",
-          children: /* @__PURE__ */ jsx17("img", { src: mobileOpen ? iconNavbarTogglerClose : iconNavbarToggler, alt: "", className: "h-6 w-6" })
+          children: /* @__PURE__ */ jsx17("img", { src: mobileOpen ? iconNavbarTogglerClose : iconNavbarToggler, alt: "", className: "h-10 w-10" })
         }
       )
     ] }),
@@ -986,7 +986,7 @@ function MbbFooter({
   const currentYear = (/* @__PURE__ */ new Date()).getFullYear();
   return /* @__PURE__ */ jsxs14("footer", { className: cn("", className), children: [
     /* @__PURE__ */ jsx18("div", { className: "bg-white", children: /* @__PURE__ */ jsxs14("div", { className: "mx-auto flex flex-col md:flex-row items-center justify-center gap-6 md:gap-0 py-7 md:py-0 md:h-[160px]", style: { maxWidth: 704 }, children: [
-      /* @__PURE__ */ jsx18(Link2, { href: "/", className: "shrink-0", children: /* @__PURE__ */ jsx18("img", { src: imgBrandLogo, alt: "\u6BDB\u5E6B\u5E6B", className: "h-[53px] md:h-[53px]", loading: "lazy" }) }),
+      /* @__PURE__ */ jsx18(Link2, { href: "/", className: "shrink-0", children: /* @__PURE__ */ jsx18("img", { src: imgBrandLogo, alt: "\u6BDB\u5E6B\u5E6B", className: "h-[50px] md:h-[53px]", loading: "lazy" }) }),
       /* @__PURE__ */ jsx18("div", { className: "hidden md:block w-px bg-[var(--neutral-300)] self-stretch my-4 mx-8" }),
       /* @__PURE__ */ jsx18("hr", { className: "md:hidden w-full border-[var(--neutral-300)] m-0" }),
       /* @__PURE__ */ jsx18("nav", { className: "flex flex-wrap items-center gap-5", "aria-label": "\u9801\u5C3E\u5C0E\u89BD", children: navLinks.map((link) => {
@@ -1004,7 +1004,7 @@ function MbbFooter({
         );
       }) })
     ] }) }),
-    /* @__PURE__ */ jsx18("div", { className: "bg-[#6fa0ed] py-4 md:py-4", children: /* @__PURE__ */ jsxs14("div", { className: "mx-auto max-w-[1200px] px-6 flex flex-col md:flex-row items-center justify-between gap-4", children: [
+    /* @__PURE__ */ jsx18("div", { className: "bg-[#6fa0ed] pt-6 pb-5 md:py-4", children: /* @__PURE__ */ jsxs14("div", { className: "mx-auto max-w-[1200px] px-6 flex flex-col md:flex-row items-center justify-between gap-4", children: [
       /* @__PURE__ */ jsxs14("div", { className: "flex flex-col xl:flex-row items-center gap-1 xl:gap-4 text-sm text-white order-2 md:order-1", children: [
         /* @__PURE__ */ jsxs14("p", { children: [
           "\u7D71\u4E00\u7DE8\u865F\uFF1A",
@@ -1038,7 +1038,7 @@ function MbbFooter({
               rel: "noopener noreferrer",
               "aria-label": social.label,
               className: "transition-opacity hover:opacity-80",
-              children: icon ? /* @__PURE__ */ jsx18("img", { src: icon, alt: "", className: "h-8 w-8 md:h-8 md:w-8", loading: "lazy" }) : /* @__PURE__ */ jsx18("span", { className: "text-sm text-white", children: social.label })
+              children: icon ? /* @__PURE__ */ jsx18("img", { src: icon, alt: "", className: "w-12 h-12 md:w-8 md:h-8", loading: "lazy" }) : /* @__PURE__ */ jsx18("span", { className: "text-sm text-white", children: social.label })
             },
             social.label
           );

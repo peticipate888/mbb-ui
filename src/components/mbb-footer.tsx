@@ -80,7 +80,7 @@ function MbbFooter({
       <div className="bg-white">
         <div className="mx-auto flex flex-col md:flex-row items-center justify-center gap-6 md:gap-0 py-7 md:py-0 md:h-[160px]" style={{ maxWidth: 704 }}>
           <Link href="/" className="shrink-0">
-            <img src={imgBrandLogo} alt="毛幫幫" className="h-[53px] md:h-[53px]" loading="lazy" />
+            <img src={imgBrandLogo} alt="毛幫幫" className="h-[50px] md:h-[53px]" loading="lazy" />
           </Link>
 
           {/* Vertical divider — desktop only */}
@@ -108,7 +108,7 @@ function MbbFooter({
       </div>
 
       {/* Lower section — blue background with company info + social icons */}
-      <div className="bg-[#6fa0ed] py-4 md:py-4">
+      <div className="bg-[#6fa0ed] pt-6 pb-5 md:py-4">
         <div className="mx-auto max-w-[1200px] px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Company info */}
           <div className="flex flex-col xl:flex-row items-center gap-1 xl:gap-4 text-sm text-white order-2 md:order-1">
@@ -146,7 +146,7 @@ function MbbFooter({
                     className="transition-opacity hover:opacity-80"
                   >
                     {icon ? (
-                      <img src={icon} alt="" className="h-8 w-8 md:h-8 md:w-8" loading="lazy" />
+                      <img src={icon} alt="" className="w-12 h-12 md:w-8 md:h-8" loading="lazy" />
                     ) : (
                       <span className="text-sm text-white">{social.label}</span>
                     )}

@@ -107,14 +107,14 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
       {/* Mobile — centered logo, absolute-positioned toggler */}
       <nav className="xl:hidden relative flex items-center justify-center bg-white px-6 h-[68px] shadow-sm">
         <Link href="/">
-          <img src={imgBrandLogo} alt="毛幫幫" className="h-8" style={{ maxWidth: 160 }} />
+          <img src={imgBrandLogo} alt="毛幫幫" className="w-[160px] h-auto" />
         </Link>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="absolute right-6 top-1/2 -translate-y-1/2 p-2 cursor-pointer"
           aria-label={mobileOpen ? "關閉選單" : "開啟選單"}
         >
-          <img src={mobileOpen ? iconNavbarTogglerClose : iconNavbarToggler} alt="" className="h-6 w-6" />
+          <img src={mobileOpen ? iconNavbarTogglerClose : iconNavbarToggler} alt="" className="h-10 w-10" />
         </button>
       </nav>
 
