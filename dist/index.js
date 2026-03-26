@@ -1181,7 +1181,7 @@ var defaultItems = [
   { label: "\u95DC\u65BC\u6BDB\u5E6B\u5E6B", href: "/about" },
   { label: "\u642D\u642D\u624B\u97FF\u61C9", href: "/fund" },
   { label: "\u642D\u642D\u624B\u6703\u54E1", href: "/membership" },
-  { label: "\u6BDB\u5E6B\u5E6B\u8CFC\u7269", href: "https://shop.mbb.pet" }
+  { label: "\u6BDB\u5E6B\u5E6B\u8CFC\u7269", href: "https://shop.mbb.pet", external: true }
 ];
 function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatarUrl, onLogin, onLogout }) {
   const [mobileOpen, setMobileOpen] = (0, import_react10.useState)(false);
@@ -1193,7 +1193,7 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
-  const isExternal = (href) => href.startsWith("http");
+  const isAbsolute = (href) => href.startsWith("http");
   return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("header", { className: "fixed top-0 left-0 right-0 z-[1020]", children: [
     /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
       "a",
@@ -1207,8 +1207,8 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
       /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_link.default, { href: "/", className: "shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("img", { src: imgBrandLogo, alt: "\u6BDB\u5E6B\u5E6B", className: "w-[240px] h-auto" }) }),
       /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "flex items-center gap-6 mx-auto", children: items.map((item) => {
         const active = currentPath.startsWith(item.href) && item.href !== "/";
-        const LinkOrA = isExternal(item.href) ? "a" : import_link.default;
-        const extraProps = isExternal(item.href) ? { target: "_blank", rel: "noopener noreferrer" } : {};
+        const LinkOrA = isAbsolute(item.href) ? "a" : import_link.default;
+        const extraProps = item.external ? { target: "_blank", rel: "noopener noreferrer" } : {};
         return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
           LinkOrA,
           {
@@ -1243,8 +1243,8 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
     ] }),
     mobileOpen && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { ref: overlayRef, className: "xl:hidden fixed inset-0 top-[68px] z-[1020] bg-white overflow-y-auto", children: [
       /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "flex flex-col", children: items.map((item) => {
-        const LinkOrA = isExternal(item.href) ? "a" : import_link.default;
-        const extraProps = isExternal(item.href) ? { target: "_blank", rel: "noopener noreferrer" } : {};
+        const LinkOrA = isAbsolute(item.href) ? "a" : import_link.default;
+        const extraProps = item.external ? { target: "_blank", rel: "noopener noreferrer" } : {};
         return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
           LinkOrA,
           {

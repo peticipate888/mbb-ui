@@ -14,6 +14,8 @@ import {
 interface NavItem {
   label: string;
   href: string;
+  /** Only opens in new tab when explicitly true (e.g. shop.mbb.pet) */
+  external?: boolean;
 }
 
 interface MbbNavbarProps {
@@ -33,7 +35,7 @@ const defaultItems: NavItem[] = [
   { label: "關於毛幫幫", href: "/about" },
   { label: "搭搭手響應", href: "/fund" },
   { label: "搭搭手會員", href: "/membership" },
-  { label: "毛幫幫購物", href: "https://shop.mbb.pet" },
+  { label: "毛幫幫購物", href: "https://shop.mbb.pet", external: true },
 ];
 
 function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatarUrl, onLogin, onLogout }: MbbNavbarProps) {
@@ -46,7 +48,7 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const isExternal = (href: string) => href.startsWith("http");
+  const isAbsolute = (href: string) => href.startsWith("http");
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[1020]">
@@ -67,8 +69,8 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
           <div className="flex items-center gap-6 mx-auto">
             {items.map((item) => {
               const active = currentPath.startsWith(item.href) && item.href !== "/";
-              const LinkOrA = isExternal(item.href) ? "a" : Link;
-              const extraProps = isExternal(item.href) ? { target: "_blank", rel: "noopener noreferrer" } : {};
+              const LinkOrA = isAbsolute(item.href) ? "a" : Link;
+              const extraProps = item.external ? { target: "_blank" as const, rel: "noopener noreferrer" } : {};
               return (
                 <LinkOrA
                   key={item.href}
@@ -123,8 +125,8 @@ function MbbNavbar({ items = defaultItems, currentPath = "/", isLoggedIn, avatar
         <div ref={overlayRef} className="xl:hidden fixed inset-0 top-[68px] z-[1020] bg-white overflow-y-auto">
           <div className="flex flex-col">
             {items.map((item) => {
-              const LinkOrA = isExternal(item.href) ? "a" : Link;
-              const extraProps = isExternal(item.href) ? { target: "_blank", rel: "noopener noreferrer" } : {};
+              const LinkOrA = isAbsolute(item.href) ? "a" : Link;
+              const extraProps = item.external ? { target: "_blank" as const, rel: "noopener noreferrer" } : {};
               return (
                 <LinkOrA
                   key={item.href}

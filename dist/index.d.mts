@@ -168,6 +168,8 @@ declare function MbbNoticeBlock({ officialNotices, personalNotices, className }:
 interface NavItem {
     label: string;
     href: string;
+    /** Only opens in new tab when explicitly true (e.g. shop.mbb.pet) */
+    external?: boolean;
 }
 interface MbbNavbarProps {
     items?: NavItem[];
